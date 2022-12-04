@@ -29,6 +29,11 @@ Test: "If a 1 is rolled it returns 0, else it returns roll amount"
 Code:scoreAmount(1)
 Expected Output:0
 
+Describe: scoreAmount (roll)
+Test: "If roll amount equals something other than 1, next roll is added to that number"
+Code: scoreAmount()
+Expected Output:
+
 ## Known bugs
 
 ## License information

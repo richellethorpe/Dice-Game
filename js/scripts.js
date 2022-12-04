@@ -1,6 +1,19 @@
-function ScoreBoard (playerId,){
+//Business Logic for ScoreBoard
+
+function ScoreBoard (playerId){
+  this.playerId = playerId;
 
 };
+
+
+//Business Logic for Player
+function Player (playerID, totalScore, turnScore) {
+ this.playerID = playerID;
+ this.totalScore = totalScore;
+ this.turnScore = 0;
+}
+
+
 function rollDice() {
   min = Math.ceil(1);
   max = Math.floor(7);
@@ -8,14 +21,17 @@ function rollDice() {
   return roll;
 }
 
-function scoreAmount (roll) {
-  let turnValue;
-  if (roll === 1) {  
-   turnValue = 0; }
-    else {
-      turnValue = roll;
-    }
-    return turnValue;
-  }
+
+Player.prototype.rollTotal = function(roll) { 
+  let rollValue;
+  if (roll === 1) {
+    rollValue = 0;
+    //this.turnScore =0
+  } else {
+   rollValue = roll;
+  } 
+  return this.turnScore += rollValue;
+}
+  
 
   
