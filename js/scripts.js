@@ -1,10 +1,9 @@
 //Business Logic for ScoreBoard
 
-function ScoreBoard (playerId){
-  this.playerId = playerId;
+function ScoreBoard (players){
+  this.players = players;
 
 };
-
 
 //Business Logic for Player
 function Player (playerID, totalScore, turnScore) {
@@ -23,14 +22,12 @@ function rollDice() {
 
 
 Player.prototype.rollTotal = function(roll) { 
-  let rollValue;
   if (roll === 1) {
-    rollValue = 0;
-    //this.turnScore =0
+    return this.turnScore = 0;
+
   } else {
-   rollValue = roll;
+    return this.turnScore += roll;
   } 
-  return this.turnScore += rollValue;
 }
   
 

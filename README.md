@@ -29,10 +29,20 @@ Test: "If a 1 is rolled it returns 0, else it returns roll amount"
 Code:scoreAmount(1)
 Expected Output:0
 
-Describe: scoreAmount (roll)
+Describe: Player.rollTotal(roll)
 Test: "If roll amount equals something other than 1, next roll is added to that number"
-Code: scoreAmount()
-Expected Output:
+Code: Player.rollTotal(5)
+      Player.rollTotal(4)
+Expected Output: 9
+
+Describe: Player.rollTotal(roll)
+Test: "If roll ends with "
+Code: Player.rollTotal(5)
+      Player.rollTotal(4)
+      Player.rollTotal(1)
+Expected Output: 0
+
+
 
 ## Known bugs
 
