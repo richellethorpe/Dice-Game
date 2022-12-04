@@ -19,10 +19,10 @@
 
 ## Tests
 
-Describe: 
-Test: 
-Code: 
-Expected Output:
+Describe: rollDice ()
+Test: "It will display a number between 1 and 6"
+Code: rollDice ()
+Expected Output: A number between 1-6
 
 
 ## Known bugs
