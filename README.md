@@ -24,6 +24,10 @@ Test: "It will display a number between 1 and 6"
 Code: rollDice ()
 Expected Output: A number between 1-6
 
+Describe: scoreAmount (roll)
+Test: "If a 1 is rolled it returns 0, else it returns roll amount"
+Code:scoreAmount(1)
+Expected Output:0
 
 ## Known bugs
 
