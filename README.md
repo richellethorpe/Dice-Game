@@ -36,7 +36,7 @@ Code: Player.rollTotal(5)
 Expected Output: 9
 
 Describe: Player.rollTotal(roll)
-Test: "If roll ends with "
+Test: "If roll ends with a 1, output is still 0"
 Code: Player.rollTotal(5)
       Player.rollTotal(4)
       Player.rollTotal(1)

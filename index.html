@@ -2,11 +2,41 @@
 <html lang="en-US">
 <head>
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-  <script src="js/scripts.js"></script>
+  <script src="js/scripts2.js"></script>
   <link rel="stylesheet" href="css/styles.css" type="text/css">
   <title>Miss Piggy's Casino</title>
 </head>
 <body>
+  <div class="container">
+    <h1>Let's Play Miss Piggy's Casino!</h1>
+    <ul>Rules:</ul>
+      <li>First player to 100 wins.</li>
+      <li>Players take turns rolling the dice.</li>
+      <li>Turn ends when player rolls a 1 or chooses to hold.</li>
+      <li>If player holds, points earned during the turn are added to their total.</li>
+      <br>
+    </ul>
+    <div id="dice-display"></div>
+    <input type="button" id="new-game" value="New-Game">
+    <div id=game-display class="hidden">
+      <lable for="turn-score">CURRENT TURN SCORE:<span id="turn-score-value"></span></lable>
+      <h3 id="sorry" class = "hidden">Shoot! You rolled a 1. Your turn is over, please pass the mouse to the next player</h3>
 
+      <br>
+      <div id="turn">
+        <p><span id="current"></span></p>
+        <input type="button" id="roll" value="roll">
+        <input type="button" id="hold" value="hold">
+        <label for="total">Total:</label>
+      </div>
+      <br>
+      <label for="player1">Player 1</label>
+      <label for="score1">Score:<div id=player1-score></div></label>
+      <br>
+      <label for="player2">Player 2</label>
+      <label for="score2">Score:<div id=player2-score></div></label><br>
+    
+    </div>
+  </div>
 </body>
 </html>
