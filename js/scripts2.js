@@ -20,6 +20,7 @@ GameState.prototype.rollDice = function() {
   this.diceResult = diceRoll();
   if (this.diceResult <= 1) {
     this.switchPlayers();
+    playerTurn();
     return this.turnScore = 0;
   } else {
     this.turnScore += this.diceResult;
@@ -32,6 +33,7 @@ GameState.prototype.rollDice = function() {
 GameState.prototype.hold = function() {
   this.score[this.player] += this.turnScore;
   this.switchPlayers();
+  playerTurn();
 }
 
 //UI Logic
@@ -49,8 +51,17 @@ function handleRoll(event) {
   const diceAmount = gameState.diceResult;
   document.getElementById("dice-value").innerText = diceAmount;
   document.getElementById("current-score").innerText = rollingTotal;
-  
+  let scoreTotal1 = gameState.score[0];
+  let scoreTotal2 = gameState.score[1];
 
+  if (rollingTotal === 0) {
+    if (gameState.player === 1){
+      document.getElementById("score-p1").innerText= scoreTotal1;
+      rollingTotal();
+    } else if (gameState.player === 0){
+      document.getElementById("score-p2").innerText= scoreTotal2;
+    }
+  }
   
 };
 
@@ -69,6 +80,16 @@ function handleHold() {
     document.getElementById("score-p2").innerText= scoreTotal2;
   }
 };
+
+function playerTurn(){
+  if (gameState.player === 0){
+    document.getElementById("player2id").removeAttribute("class", "highlight");
+    document.getElementById("player1id").setAttribute("class", "highlight");
+  } else if (gameState.player === 1){
+    document.getElementById("player1id").removeAttribute("class", "highlight");
+    document.getElementById("player2id").setAttribute("class", "highlight");
+  }
+}
 
 window.addEventListener("load", function() {
   // const newGameBtn = document.getElementsByClassName("new-game");

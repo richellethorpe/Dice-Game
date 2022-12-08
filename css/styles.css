@@ -14,3 +14,7 @@ body {
 .right {
   text-align: right;
 }
+
+.highlight {
+  color: greenyellow;
+}
