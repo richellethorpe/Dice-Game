@@ -20,6 +20,7 @@ GameState.prototype.rollDice = function() {
   this.diceResult = diceRoll();
   if (this.diceResult <= 1) {
     this.switchPlayers();
+    return this.turnScore = 0;
   } else {
     this.turnScore += this.diceResult;
     if ((this.score[this.player] + this.turnScore) > 100) {
@@ -39,26 +40,40 @@ let gameState = new GameState();
 
 function handleRoll(event) {
   event.preventDefault();
+  document.getElementById("dice-value").innerText = null;
+  document.querySelector("span#current-score").innerText = null;
   gameState.rollDice();
-  console.log(gameState.diceResult)
+  console.log("dice result" + gameState.diceResult)
+  console.log("roll total" + gameState.turnScore)
+  const rollingTotal = gameState.turnScore;
+  const diceAmount = gameState.diceResult;
+  document.getElementById("dice-value").innerText = diceAmount;
+  document.getElementById("current-score").innerText = rollingTotal;
+  
+
+  
 };
 
 function handleHold() {
   gameState.hold();
-  let scoreTotal = gameState.score;
-  console.log(scoreTotal);
-  console.log("this player" + this.player)
-  if (this.player === 0){
-    document.getElementById("player1Score").innerText= scoreTotal;
-  } else if (this.player === 1){
-    document.getElementById("player2Score").innerText= scoreTotal;
+  document.querySelector("span#current-score").innerText = null;
+  document.getElementById("dice-value").innerText = null;
+  let scoreTotal1 = gameState.score[0];
+  let scoreTotal2 = gameState.score[1];
+  console.log("score Total: " + scoreTotal1);
+
+  console.log("player object: " + gameState.player);
+  if (gameState.player === 1){
+    document.getElementById("score-p1").innerText= scoreTotal1;
+  } else if (gameState.player === 0){
+    document.getElementById("score-p2").innerText= scoreTotal2;
   }
 };
 
 window.addEventListener("load", function() {
-  const newGameBtn = document.getElementsByClassName("new-game");
-  const gameRulesBtn = document.getElementsByClassName("how-to");
-  const closeBtn = document.getElementsByClassName("close-how");
+  // const newGameBtn = document.getElementsByClassName("new-game");
+  // const gameRulesBtn = document.getElementsByClassName("how-to");
+  // const closeBtn = document.getElementsByClassName("close-how");
   const rollBtn = document.getElementById("roll");
   const holdBtn = document.getElementById("hold");
 
